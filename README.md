@@ -10,15 +10,32 @@
 - **Zero Configuration**: Just run it in your project root, and you're good to go.
 - **Cross-Platform**: Single-binary execution for Windows, Linux, and macOS.
 
-## 🚀 Quick Start
+## 🚀 Installation & Quick Start
 
 ### Windows
-1. Download `upack.exe`.
+1. Download `upack.exe` from [Releases](https://github.com/rbirukoff-rgb/upack/releases).
 2. Place it in a folder included in your `PATH` (e.g., `C:\bin`).
 3. Open your terminal in a project folder and run:
    ```powershell
    upack
    ```
+
+> [!IMPORTANT]
+> **Troubleshooting: "Blocked by Device Guard"**
+> If you see an error stating that `upack.exe` is blocked by your organization's policy, you can bypass this using **WSL (Windows Subsystem for Linux)**:
+> 1. Download `upack_linux`.
+> 2. Move it to the WSL internal filesystem:
+>    ```bash
+>    mkdir -p ~/bin
+>    cp /mnt/c/path/to/download/upack_linux ~/bin/
+>    chmod +x ~/bin/upack_linux
+>    ```
+> 3. Create a `upack.bat` file in your Windows `PATH` (e.g., `C:\bin\upack.bat`) with the following content:
+>    ```batch
+>    @echo off
+>    wsl ~/bin/upack_linux %*
+>    ```
+> Now you can run `upack` normally in Windows CMD/PowerShell.
 
 ### Linux / macOS
 1. Download the appropriate binary (`upack_linux` or `upack_mac`).
@@ -53,4 +70,3 @@ You can add custom rules to a `packignore` file in your project root (using stan
 ---
 Developed by **Roman Birukoff**.  
 *Good practice in the 21st century.*
-
